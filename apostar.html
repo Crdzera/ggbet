@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quero Apostar - GG.BET</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffa500;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    input[type="text"], input[type="url"] {
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn {
+      background-color: #ffa500;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #ff8c00;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>QUERO APOSTAR</h1>
+
+  <form id="betForm">
+    <input type="text" id="nome" placeholder="Seu nome" required><br>
+    <input type="text" id="cpf" placeholder="Seu CPF" required><br>
+    <input type="text" id="valor" placeholder="Valor da aposta" required><br>
+    <input type="url" id="link" placeholder="Link do bilhete" required><br>
+    <button type="button" class="btn" onclick="enviarWhatsApp()">ENVIAR PARA O WHATSAPP</button>
+  </form>
+
+  <div class="message">
+    Aguarde nosso retorno via WhatsApp para validarmos sua aposta.
+  </div>
+
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById("nome").value;
+      const cpf = document.getElementById("cpf").value;
+      const valor = document.getElementById("valor").value;
+      const link = document.getElementById("link").value;
+
+      const mensagem = `Olá! Quero apostar na GG.BET.%0A%0ANome: ${nome}%0ACPF: ${cpf}%0AValor da aposta: ${valor}%0ALink do bilhete: ${link}`;
+      const url = `https://wa.me/5511971206084?text=${mensagem}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
