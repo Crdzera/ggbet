@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário GG.BET</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+      padding: 30px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      margin-top: 16px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #f59e0b;
+      color: #000;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e09100;
+    }
+  </style>
+</head>
+<body>
+  <h2>Envie sua aposta para a GG.BET</h2>
+  <form id="ggForm">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" required>
+
+    <label for="cpf">CPF</label>
+    <input type="text" id="cpf" required>
+
+    <label for="valor">Valor da Aposta</label>
+    <input type="text" id="valor" required>
+
+    <label for="imagem">Adicione o print da sua aposta</label>
+    <input type="file" id="imagem" accept="image/png, image/jpeg" required>
+
+    <button type="submit">Enviar via WhatsApp</button>
+      <p style="margin-top: 20px; color: #f59e0b; text-align: center;">Aguarde nosso retorno para validarmos a aposta.</p>
+  </form>
+
+  <script>
+    document.getElementById('ggForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const cpf = document.getElementById('cpf').value;
+      const valor = document.getElementById('valor').value;
+
+      alert('Você será redirecionado para o WhatsApp. Por favor, anexe o print da sua aposta na conversa.');
+
+      const msg = `Olá, meu nome é ${nome}. Meu CPF é ${cpf}. Valor da aposta: R$${valor}. Estou enviando o print da minha aposta.`;
+      const numero = '5511971206084';
+      const link = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+      window.open(link, '_blank');
+    });
+  </script>
+</body>
+</html>
